@@ -18,6 +18,29 @@ let openDoor2;
 let openDoor3;
 let currentlyPlaying = true;
 
+// Load initial random images behind the doors
+const randomChoreDoorGenerator = () => {
+  console.log('Random Chore door is called');
+  let choreDoor = Math.floor(Math.random() *3);
+  console.log(choreDoor);
+
+  if (choreDoor === 0) {
+    openDoor1 = botPath;
+    openDoor2 = beachPath;
+    openDoor3 = spacePath;
+  } else if (choreDoor === 1) {
+    openDoor2 = botPath;
+    openDoor1 = beachPath;
+    openDoor3 = spacePath;
+  } else {
+    openDoor3 = botPath;
+    openDoor1 = beachPath;
+    openDoor2 = spacePath;
+  }
+  console.log(openDoor1,openDoor2,openDoor3);
+
+}
+
 // Start a game round
 const startRound = () => {
   console.log('Game starts!');
@@ -28,6 +51,7 @@ const startRound = () => {
   numClosedDoors = 3;
   currentlyPlaying = true;
   startButton.innerHTML = 'Good Luck!';
+  randomChoreDoorGenerator();
 }
 
 startRound();
