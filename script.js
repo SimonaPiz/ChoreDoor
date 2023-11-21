@@ -13,7 +13,8 @@ const path = './img/';
 
 // Set initial variables
 let numClosedDoors = 3;
-let openDoor = [];
+let imgOpenDoors = [];
+let areOpenDoors = [false, false, false, false];
 let currentlyPlaying = true;
 
 // Load initial random images behind the doors
@@ -23,19 +24,19 @@ const randomChoreDoorGenerator = () => {
   console.log(choreDoor);
 
   if (choreDoor === 0) {
-    openDoor[1] = botPath;
-    openDoor[2] = beachPath;
-    openDoor[3] = spacePath;
+    imgOpenDoors[1] = botPath;
+    imgOpenDoors[2] = beachPath;
+    imgOpenDoors[3] = spacePath;
   } else if (choreDoor === 1) {
-    openDoor[2] = botPath;
-    openDoor[1] = beachPath;
-    openDoor[3] = spacePath;
+    imgOpenDoors[2] = botPath;
+    imgOpenDoors[1] = beachPath;
+    imgOpenDoors[3] = spacePath;
   } else {
-    openDoor[3] = botPath;
-    openDoor[1] = beachPath;
-    openDoor[2] = spacePath;
+    imgOpenDoors[3] = botPath;
+    imgOpenDoors[1] = beachPath;
+    imgOpenDoors[2] = spacePath;
   }
-  console.log(openDoor[1],openDoor[2],openDoor[3]);
+  console.log(imgOpenDoors[1],imgOpenDoors[2],imgOpenDoors[3]);
 
 }
 
@@ -58,11 +59,23 @@ startRound();
 const clickEvent = (door) => {
   let doorNum = Number(door.id.slice(-1));
   console.log('-Click door',doorNum);
-  if (currentlyPlaying) {
-    door.src = path + openDoor[doorNum];
-    console.log(door.src);
+  if (currentlyPlaying && !areOpenDoors[doorNum]) {
+    areOpenDoors[doorNum] = true;
+    door.src = path + imgOpenDoors[doorNum];
+    numClosedDoors--;
+    console.log('open door')
+    
     //check door
-  }
+    if (numClosedDoors === 0) {
+      console.log('game ends, you win!');
+      startButton.innerHTML = 'You win! Play again?';
+      currentlyPlaying = false;
+    } else if (door.src.includes('bot')) {
+      console.log('It\'s bot, you lose');
+      startButton.innerHTML = 'Game over! Play again?';
+      currentlyPlaying = false;
+    }
+  } else console.log('the door is already open')
 }
 
 // Add click event on doors
