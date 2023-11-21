@@ -49,16 +49,25 @@ body {
   padding: 10px;
 }
 
-.start-row {
-  margin: auto;
-  width: 120px;
-  height: 43px;
+button.start-row {
+  margin: 20px auto;
+  width: 150px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #eb6536;
-  padding-top: 18px;
-  font-family: 'Work Sans';
+  padding: 12px;
+  font-family: 'Work Sans', sans-serif;
   font-size: 18px;
-  text-align: center;
   color: #010165;
   margin-bottom: 9px;
   cursor: pointer;
+  border-radius: 15px;
+  border: none;
+}
+
+.start-row:hover {
+  background-color: #f07f57;
+  box-shadow: 5px 5px 11px rgba(0, 0, 43, 0.61);
 }
