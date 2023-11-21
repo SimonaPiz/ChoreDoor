@@ -7,12 +7,35 @@
 
 ## Table of Contents
 * [General Info](#general-information)
-* [Implementation Details](#implementation-details)
-* [Testing](#testing)
-* [Screenshots](#screenshots)
 * [Technologies Used](#technologies-used)
-* [Usage](#usage)
 * [Acknowledgements](#acknowledgements)
 * [Author](#author)
 
 ## General Information
+
+In this project, I created the entire logic to make the game work.
+
+### Features:
+
+- [x]  When the page loads the doors are closed and the hidden images are randomly matched.
+- [x]  when the user clicks on a door, it opens showing the image
+    - [x]  if the image is the ChoreBot, the user loses
+    - [x]  otherwise the user can go ahead and click on another door
+    - [x]  if the user manages to avoid the ChoreBot until the last door, he wins
+- [x]  the label at the bottom shows the state of the game (win or loss)
+- [x]  The button resets the game when clicked
+
+  ✔ [issue #1](https://github.com/SimonaPiz/ChoreDoor/issues/1)
+
+## Technologies Used
+   - HTML
+   - CSS
+   - JavaScript
+
+## Acknowledgements
+
+This project comes from the [Codecademy's Building Interactive JavaScript Websites](https://www.codecademy.com/learn/build-interactive-websites) course.
+
+## Author
+
+- [Simona Pizio](https://github.com/SimonaPiz)
