@@ -13,9 +13,7 @@ const path = './img/';
 
 // Set initial variables
 let numClosedDoors = 3;
-let openDoor1;
-let openDoor2;
-let openDoor3;
+let openDoor = [];
 let currentlyPlaying = true;
 
 // Load initial random images behind the doors
@@ -25,19 +23,19 @@ const randomChoreDoorGenerator = () => {
   console.log(choreDoor);
 
   if (choreDoor === 0) {
-    openDoor1 = botPath;
-    openDoor2 = beachPath;
-    openDoor3 = spacePath;
+    openDoor[1] = botPath;
+    openDoor[2] = beachPath;
+    openDoor[3] = spacePath;
   } else if (choreDoor === 1) {
-    openDoor2 = botPath;
-    openDoor1 = beachPath;
-    openDoor3 = spacePath;
+    openDoor[2] = botPath;
+    openDoor[1] = beachPath;
+    openDoor[3] = spacePath;
   } else {
-    openDoor3 = botPath;
-    openDoor1 = beachPath;
-    openDoor2 = spacePath;
+    openDoor[3] = botPath;
+    openDoor[1] = beachPath;
+    openDoor[2] = spacePath;
   }
-  console.log(openDoor1,openDoor2,openDoor3);
+  console.log(openDoor[1],openDoor[2],openDoor[3]);
 
 }
 
@@ -55,3 +53,19 @@ const startRound = () => {
 }
 
 startRound();
+
+// Set click event
+const clickEvent = (door) => {
+  let doorNum = Number(door.id.slice(-1));
+  console.log('-Click door',doorNum);
+  if (currentlyPlaying) {
+    door.src = path + openDoor[doorNum];
+    console.log(door.src);
+    //check door
+  }
+}
+
+// Add click event on doors
+door1.addEventListener('click', (ev) => clickEvent(ev.target));
+door2.addEventListener('click', (ev) => clickEvent(ev.target));
+door3.addEventListener('click', (ev) => clickEvent(ev.target));
