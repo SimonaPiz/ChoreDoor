@@ -1,5 +1,7 @@
-# ChoreDoor
-> An interactive one-page game built with JavaScript DOM manipulation
+# <img src="https://github.com/SimonaPiz/ChoreDoor/blob/main/img/logo.svg" height="25px" alt="logo Chore Door" title="logo Chore Door"/> ChoreDoor
+An interactive one-page game built with JavaScript DOM manipulation
+
+> Live demo [_here_](https://simonapiz.github.io/ChoreDoor/)
 
 <img src="https://github.com/SimonaPiz/ChoreDoor/assets/91121660/ba0e1e26-7726-4edc-ac05-9c923860a2b4" height="350px" alt="preview" title="preview"/>
 <img src="https://github.com/SimonaPiz/ChoreDoor/assets/91121660/56ccacc5-22c3-4f6f-b4eb-810a2a8bc94c" height="350px" alt="preview" title="preview"/>
